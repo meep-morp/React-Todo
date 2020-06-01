@@ -1,6 +1,4 @@
 import React from "react";
-import Form from "./components/TodoForm";
-import TodoList from "./components/TodoList";
 import Todo from "./components/Todo";
 
 class App extends React.Component {
@@ -35,16 +33,20 @@ class App extends React.Component {
     })
   }
 
+  onComplete = event => {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
-        <Form
+        <Todo
           onChangeHandler={this.onChangeHandler}
           onSubmitHandler={this.onSubmitHandler}
+          onComplete={this.onComplete}
           formValue={this.state.formValue}
+          todoList={this.state.todoList}
         />
-        <Todo />
-        <TodoList todoList={this.state.todoList} />
       </div>
     );
   }

@@ -6,7 +6,7 @@ class TodoList extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="todoContainer" onClick={this.props.onComplete}>
                 {this.props.todoList.map(item => {
                     return (
                         <div className="todoItem">
