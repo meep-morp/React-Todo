@@ -1,5 +1,6 @@
 import React from "react";
-import Todo from "./components/Todo";
+import Form from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -33,19 +34,39 @@ class App extends React.Component {
     })
   }
 
-  onComplete = event => {
-    event.preventDefault();
+  onComplete = itemID => {
+    this.setState({
+      todoList: this.state.todoList.map(item => {
+        if (item.id === itemID) {
+          return {
+            ...item,
+            completed: !item.completed,
+          }
+        } else {
+          return item;
+        }
+      })
+    });
+  }
+
+  onClear = () => {
+    this.setState({
+      todoList: this.state.todoList.filter(item => item.completed !== true)
+    });
   }
 
   render() {
     return (
       <div>
-        <Todo
+        <Form
           onChangeHandler={this.onChangeHandler}
           onSubmitHandler={this.onSubmitHandler}
-          onComplete={this.onComplete}
           formValue={this.state.formValue}
+        />
+        <TodoList
           todoList={this.state.todoList}
+          onComplete={this.onComplete}
+          onClear={this.onClear}
         />
       </div>
     );
