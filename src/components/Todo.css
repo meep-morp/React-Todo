@@ -67,6 +67,7 @@ h1, h2, h3, h4, h5 {
 
  button {
      margin-top: 10px;
+     outline: none;
  }
 
  .clear:hover {
@@ -75,7 +76,7 @@ h1, h2, h3, h4, h5 {
  }
 
  .add:hover {
-     transform: rotate(360deg);
+     transform: rotate(180deg);
      transition: ease-out 1.5s;
  }
 

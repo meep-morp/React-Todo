@@ -71,12 +71,6 @@ class App extends React.Component {
         item.task.toLowerCase().includes(this.state.searchTerm)
       )
     })
-
-    if (this.state.searchTerm === "") {
-      this.setState({
-        isSearching: false,
-      })
-    }
   };
 
   render() {
@@ -94,7 +88,8 @@ class App extends React.Component {
           formValue={this.state.formValue}
         />
         <TodoList
-          todoList={this.state.isSearching === false
+          todoList={this.state.isSearching === false 
+            || this.state.searchTerm === ""
             ? this.state.todoList
             : this.state.searchList}
           onComplete={this.onComplete}
