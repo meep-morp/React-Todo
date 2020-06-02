@@ -1,4 +1,5 @@
 import React from "react";
+import "./components/Todo.css"
 import Form from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 
@@ -10,7 +11,9 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      todoList: [],
+      todoList: !JSON.parse(localStorage.getItem("list"))
+        ? []
+        : JSON.parse(localStorage.getItem("list")),
       formValue: "",
     };
   }
@@ -56,8 +59,11 @@ class App extends React.Component {
   }
 
   render() {
+    // eslint-disable-next-line no-lone-blocks
+    {localStorage.setItem("list", JSON.stringify(this.state.todoList));}
     return (
-      <div>
+      <div className="App">
+        <h1>To-Do List</h1>
         <Form
           onChangeHandler={this.onChangeHandler}
           onSubmitHandler={this.onSubmitHandler}

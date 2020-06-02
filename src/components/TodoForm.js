@@ -9,10 +9,10 @@ class Form extends React.Component {
                     onChange={this.props.onChangeHandler}
                     name="todoForm"
                     type="text"
-                    placeholder="Add Item"
+                    placeholder="✏️"
                     value={this.props.formValue}
                 />
-                <button type="submit">Go!</button>
+                <button className="button" type="submit">+</button>
             </form>
         )
     }

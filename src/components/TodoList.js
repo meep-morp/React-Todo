@@ -10,10 +10,14 @@ class TodoList extends React.Component {
                     return (
                         <div className="todoItem" onClick={() => this.props.onComplete(item.id)}>
                             <h2>{item.task}</h2>
-                            <h3>{item.completed === false ? "false" : "true"}</h3>
+                            <h3>{item.completed === false ? "( )" : "(✔️)"}</h3>
                         </div>)
                 })}
-                <button onClick={this.props.onClear}>Clear Completed</button>
+                    <button
+                        className="button clear"
+                        onClick={this.props.onClear
+                        }>🧹
+                    </button>
             </div>
         )
     }
