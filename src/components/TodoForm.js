@@ -4,7 +4,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.props.onSubmitHandler}>
+            <form classname="form" onSubmit={this.props.onSubmitHandler}>
                 <input
                     onChange={this.props.onChangeHandler}
                     name="todoForm"

@@ -16,7 +16,7 @@ class TodoList extends React.Component {
                     <button
                         className="button clear"
                         onClick={this.props.onClear
-                        }>🧹
+                        }>{"🧹"}
                     </button>
             </div>
         )

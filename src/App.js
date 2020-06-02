@@ -2,6 +2,7 @@ import React from "react";
 import "./components/Todo.css"
 import Form from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import Search from "./components/search";
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -14,7 +15,10 @@ class App extends React.Component {
       todoList: !JSON.parse(localStorage.getItem("list"))
         ? []
         : JSON.parse(localStorage.getItem("list")),
+      searchList: [],
+      isSearching: false,
       formValue: "",
+      searchTerm: "",
     };
   }
 
@@ -58,19 +62,41 @@ class App extends React.Component {
     });
   }
 
+  onSearch = event => {
+    console.log(this.state.isSearching)
+    this.setState({
+      searchTerm: event.target.value,
+      isSearching: true,
+      searchList: this.state.todoList.filter(item =>
+        item.task.toLowerCase().includes(this.state.searchTerm)
+      )
+    })
+
+    if (this.state.searchTerm === "") {
+      this.setState({
+        isSearching: false,
+      })
+    }
+  };
+
   render() {
     // eslint-disable-next-line no-lone-blocks
-    {localStorage.setItem("list", JSON.stringify(this.state.todoList));}
+    { localStorage.setItem("list", JSON.stringify(this.state.todoList)); }
     return (
       <div className="App">
-        <h1>To-Do List</h1>
+        <div className="header">
+          <Search onSearch={this.onSearch} />
+          <h1>To-Do List</h1>
+        </div>
         <Form
           onChangeHandler={this.onChangeHandler}
           onSubmitHandler={this.onSubmitHandler}
           formValue={this.state.formValue}
         />
         <TodoList
-          todoList={this.state.todoList}
+          todoList={this.state.isSearching === false
+            ? this.state.todoList
+            : this.state.searchList}
           onComplete={this.onComplete}
           onClear={this.onClear}
         />
