@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .button {
+    cursor: pointer;
     background-color: rgb(219, 83, 83);
     color: white;
     font-weight: 700;
@@ -25,6 +26,11 @@ h1, h2, h3, h4, h5 {
     font-size: 1.5rem;
     border-radius: 30px;
     text-shadow: 0 0 2px black, 0 0 2px black;
+}
+
+.button:hover {
+    background-color: rgb(228, 143, 143);
+    transition: 0.3s ease;
 }
 
 /*  HEADER  */
@@ -51,13 +57,35 @@ h1, h2, h3, h4, h5 {
  .todoItem h3{
      color: red;
      text-shadow: 0 0 2px black, 0 0 2px black;
+     cursor: pointer;
+ }
+
+ .todoItem h3:hover {
+    letter-spacing: 4px;
+    transition: 0.3s ease;
  }
 
  button {
      margin-top: 10px;
  }
 
+ .clear:hover {
+     transform: rotate(20deg);
+     transition: ease-out 0.5s;
+ }
+
+ .add:hover {
+     transform: rotate(360deg);
+     transition: ease-out 1.5s;
+ }
+
  /* FORM STYLES */
+ .newTask {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
 
 form input {
     height: 20px;

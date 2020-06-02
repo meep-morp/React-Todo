@@ -12,7 +12,7 @@ class Form extends React.Component {
                     placeholder="✏️"
                     value={this.props.formValue}
                 />
-                <button className="button" type="submit">+</button>
+                <button className="button add" type="submit">+</button>
             </form>
         )
     }
