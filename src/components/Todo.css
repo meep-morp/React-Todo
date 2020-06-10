@@ -1,0 +1,117 @@
+/*  GENERAL STYLES  */
+@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Nunito:wght@300&display=swap');
+html {
+    font-family: 'Nunito', sans-serif;
+    background: rgb(236, 238, 207);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Chelsea Market', cursive;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    cursor: pointer;
+    background-color: rgb(219, 83, 83);
+    color: white;
+    font-weight: 700;
+    border: black 1px solid;
+    height: 10%;
+    font-size: 1.5rem;
+    border-radius: 30px;
+    text-shadow: 0 0 2px black, 0 0 2px black;
+}
+
+.button:hover {
+    background-color: rgb(228, 143, 143);
+    transition: 0.3s ease;
+}
+
+/*  HEADER  */
+
+.header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/*TO DO ITEM*/
+.todoContainer {
+    width: 45%;
+}
+
+@media (max-width: 800px) {
+    .todoContainer {
+        width: 75%;
+    }
+}
+
+.todoItem {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(236, 238, 207);
+    padding: 5px;
+    border-top: 1px solid rgb(214, 120, 120);
+}
+
+ .todoItem h3{
+     color: red;
+     text-shadow: 0 0 2px black, 0 0 2px black;
+     cursor: pointer;
+ }
+
+ .todoItem h3:hover {
+    letter-spacing: 4px;
+    transition: 0.3s ease;
+ }
+
+ button {
+     margin-top: 10px;
+     outline: none;
+ }
+
+ .clear:hover {
+     transform: rotate(-20deg);
+     transition: ease-out 0.5s;
+ }
+
+ .add:hover {
+     transform: rotate(180deg);
+     transition: ease-out 1.5s;
+ }
+
+ /* FORM STYLES */
+ .newTask {
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+form input {
+    height: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    padding: 5px;
+    margin: 10px;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom: red 1px solid;
+}
+
+form input::placeholder {
+    letter-spacing: 1px;
+    color: rgba(212, 133, 133, 0.39);
+}
+
+form input:focus {
+    border: rgb(190, 80, 80) 1.3px solid;
+}
